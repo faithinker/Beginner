@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7L-gF-WE6">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web Content-->
+        <scene sceneID="f18-s3-mAc">
+            <objects>
+                <viewController id="L7L-gF-WE6" customClass="WebContentViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLe-If-O5V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTb-1d-fH7">
+                                <rect key="frame" x="0.0" y="89" width="375" height="533"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pU-hi-L65">
+                                <rect key="frame" x="0.0" y="44" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3uA-WL-yKV"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" id="fMP-dA-TP9">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="PfE-M6-oFB">
+                                            <rect key="frame" x="16" y="5.5" width="343" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="L7L-gF-WE6" id="1IC-nJ-wzy"/>
+                                            </connections>
+                                        </textField>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wou-fe-eDx">
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="P5y-0T-eQH"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Back" id="J4y-6f-0Ka">
+                                        <connections>
+                                            <action selector="goBack:" destination="L7L-gF-WE6" id="1On-gi-MR0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Tea-ki-avA"/>
+                                    <barButtonItem title="Reload" id="dFM-lV-Vmf">
+                                        <connections>
+                                            <action selector="reload:" destination="L7L-gF-WE6" id="DBj-7E-25j"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ukS-wv-4lE"/>
+                                    <barButtonItem title="Forward" id="yTt-N5-6Ka">
+                                        <connections>
+                                            <action selector="goForward:" destination="L7L-gF-WE6" id="QN0-xM-jqn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OID-gq-T7C"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OID-gq-T7C" firstAttribute="trailing" secondItem="RTb-1d-fH7" secondAttribute="trailing" id="HW6-gT-fRe"/>
+                            <constraint firstItem="Wou-fe-eDx" firstAttribute="top" secondItem="RTb-1d-fH7" secondAttribute="bottom" id="Koh-mk-tif"/>
+                            <constraint firstItem="5pU-hi-L65" firstAttribute="top" secondItem="OID-gq-T7C" secondAttribute="top" id="NyK-li-ljw"/>
+                            <constraint firstItem="Wou-fe-eDx" firstAttribute="leading" secondItem="OID-gq-T7C" secondAttribute="leading" id="OCo-xB-vrl"/>
+                            <constraint firstItem="OID-gq-T7C" firstAttribute="bottom" secondItem="Wou-fe-eDx" secondAttribute="bottom" id="e6O-ZY-MKi"/>
+                            <constraint firstItem="5pU-hi-L65" firstAttribute="trailing" secondItem="OID-gq-T7C" secondAttribute="trailing" id="hPS-UM-NP9"/>
+                            <constraint firstItem="RTb-1d-fH7" firstAttribute="leading" secondItem="OID-gq-T7C" secondAttribute="leading" id="mcL-fG-Pb3"/>
+                            <constraint firstItem="5pU-hi-L65" firstAttribute="leading" secondItem="OID-gq-T7C" secondAttribute="leading" id="pcg-m1-ifU"/>
+                            <constraint firstItem="Wou-fe-eDx" firstAttribute="trailing" secondItem="OID-gq-T7C" secondAttribute="trailing" id="voj-q9-XnP"/>
+                            <constraint firstItem="RTb-1d-fH7" firstAttribute="top" secondItem="5pU-hi-L65" secondAttribute="bottom" id="yHk-9Y-iM6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Web Content" id="NjK-2k-Lns"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="urlField" destination="PfE-M6-oFB" id="0jD-Tk-9yO"/>
+                        <outlet property="webView" destination="RTb-1d-fH7" id="iyV-Oo-lUh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIi-tE-AYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560.8" y="-252.32383808095955"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Department" representedClassName="DepartmentEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="department" inverseEntity="Employee"/>
+        <fetchedProperty name="lowSalary" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Employee" predicateString="salary &lt;= 30000"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Employee" representedClassName="EmployeeEntity" parentEntity="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="contact" optional="YES" attributeType="Transformable" valueTransformerName="ContactTransformer" customClassName=".Contact"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="salary" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="employees" inverseEntity="Department"/>
+    </entity>
+    <entity name="Person" representedClassName="PersonEntity" isAbstract="YES" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="age" attributeType="Integer 16" minValueString="0" maxValueString="50" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" minValueString="2" maxValueString="33"/>
+    </entity>
+    <entity name="Task" representedClassName="TaskEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="done" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="task" attributeType="String"/>
+    </entity>
+    <fetchRequest name="highSalary" entity="Employee" predicateString="salary &gt;= 80000 AND department.name BEGINSWITH $deptName" fetchLimit="100"/>
+    <elements>
+        <element name="Department" positionX="-203.41796875" positionY="70.515625" width="128" height="101"/>
+        <element name="Employee" positionX="199.1015625" positionY="-51.02734375" width="128" height="103"/>
+        <element name="Person" positionX="-230.47265625" positionY="-82.17578125" width="128" height="88"/>
+        <element name="Task" positionX="-27" positionY="27" width="128" height="88"/>
+    </elements>
+</model>
